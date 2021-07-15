@@ -71,7 +71,7 @@ int main(){
             break;
         }
     }
-    /*
+    
     //開始排序
     current1=head1;
     current2=head2;
@@ -79,27 +79,47 @@ int main(){
     nodeName *tempHead = temp;
     while(true){
         if (current2->data > current1->data){
-            temp -> next =current2;
-            temp=temp->next;
-            current2 = current2->next;
-        }
-        else
-        {
             temp -> next =current1;
             temp=temp->next;
             current1 = current1->next;
+            if (current1 == NULL){
+                temp -> next =current2;
+                temp=temp->next;
+                break;
+            }
+            
         }
-        if((current1 == NULL) || ( current2 == NULL)){
-            break;
+        else if(current2->data < current1->data)
+        {
+            temp -> next =current2;
+            temp=temp->next;
+            current2 = current2->next;
+            if (current2 == NULL){
+                temp -> next =current1;
+                temp=temp->next;
+                break;
+            }
         }
+       else{
+           temp -> next =current2;
+            temp=temp->next;
+            current2 = current2->next;
+            if (current2 == NULL){
+                temp -> next =current1;
+                temp=temp->next;
+                break;
+            }
+       }
     }
+    cout<<"\n合併後為:";
     while(true){
-        cout<< tempHead->next->data<<" "; //印目前的節點
-        tempHead = tempHead->next; //印完後要印下一個節點的內容
-        if (tempHead == NULL){ //current為NULL的時候停下來
+        if (tempHead->next == NULL){ //current為NULL的時候停下來
             break;
         }
-    }*/
+        cout<<tempHead->next->data<<" "; //印目前的節點
+        tempHead = tempHead->next; //印完後要印下一個節點的內容
+       
+    }
 
 
     return 0;
