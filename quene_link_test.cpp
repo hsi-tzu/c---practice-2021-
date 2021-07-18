@@ -67,7 +67,7 @@ struct Queue {
         if (front == NULL)
             rear = NULL;
   
-        delete (temp);
+        delete (temp); //須是先前配置給以 new 運算子建立之物件的記憶體區塊指標
     }
 };
 /*其他寫法*/
